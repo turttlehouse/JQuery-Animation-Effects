@@ -11,6 +11,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
 
     <style>
+        h1{
+            background-color: aquamarine;
+            
+        }
       #circle {
         width: 150px;
         height: 150px;
@@ -18,7 +22,8 @@
         border-radius: 100%;
       }
       #fade-toggle,
-      #slide-toggle {
+      #slide-toggle,
+      #refresh {
         background-color: black;
         font-family: "sans-serif";
         color: white;
@@ -31,6 +36,9 @@
           #f8cdda 51%,
           #1d2b64 100%
         );
+        font-style: oblique;
+        font-weight: bold;
+        font-family: "Arial", sans-serif;
         margin: 5px;
         padding: 5px 5px;
         text-align: center;
@@ -44,49 +52,59 @@
 
       #custom-animation:hover {
         background-position: right center; /* change the direction of the change here */
-        color: blue;
+        color: yellow;
         text-decoration: none;
       }
     </style>
 
     <script>
       /* All Jquery methods are inside the document ready event. */
-      $(document).ready(function()
-      {
-          //fade in and out animation
-          $("button#fade-toggle").click(function()
-          {
-              $("#circle").fadeToggle(5000);    //5000 ms is equal to 5 seconds animation duration
+      $(document).ready(function () {
+        //fade in and out animation
+        $("button#fade-toggle").click(function () {
+          $("#circle").fadeToggle(5000); //5000 ms is equal to 5 seconds animation duration
+        });
 
-          });
+        //sliding up and down animation
+        $("button#slide-toggle").click(function () {
+          $("#circle").slideToggle(5000);
+        });
 
-          //sliding up and down animation
-          $("button#slide-toggle").click(function()
-          {
-              $("#circle").slideToggle(5000);
+        //My own customized animation
 
-          });
+        $("button#custom-animation").click(function () {
+          $("#circle").animate(
+            {
+              width: "300px",
+              height: "300px",
+              backgroundColor: "green",
+            },
 
-          //My own customized animation
-
-          $("button#custom-animation").click(function()
-          {
-              $("#circle").animate({
-                  width:"300px",
-                  height:"300px",
-                  backgroundColor:"green"
+            {
+              duration: 4000,
+              specialEasing: {
+                backgroundColor: "linear",
               },
+            }
+          );
+        });
 
-              {
-                  duration:4000,
-                  specialEasing:{
-                      backgroundColor:"linear"
-                  }
+        $("button#refresh").click(function () {
+          $("#circle").animate(
+            {
+              height: "150px",
+              width: "150px",
+              backgroundColor: "rgb(100, 234, 255);",
+            },
 
-              
-           });
-
-          });
+            {
+              duration: 1,
+              specialEasing: {
+                backgroundColor: "linear",
+              },
+            }
+          );
+        });
       });
     </script>
   </head>
@@ -100,6 +118,8 @@
     <button id="fade-toggle">Fade Button</button>
 
     <button id="slide-toggle">Slide Button</button>
+
+    <button id="refresh">Refresh</button>
 
     <button id="custom-animation">My Custom Animation</button>
   </body>
