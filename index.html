@@ -1,107 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JQuery Animations</title>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 
-
-
+    <!-- The animate() function in jQuery does not directly animate colors by default. To animate the background color,we need to use the jQuery Color plugin or the jQuery UI library. -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-color/2.1.2/jquery.color.min.js"></script>
 
     <style>
-        #circle {
-            width: 150px;
-            height: 150px;
-            background-color: rgb(100, 234, 255);
-            border-radius: 100%;
-        }
-        #fade-toggle,#slide-toggle{
-            background-color: black;
-            font-family: 'sans-serif';
-            color: white;
-        }
-        
+      #circle {
+        width: 150px;
+        height: 150px;
+        background-color: rgb(100, 234, 255);
+        border-radius: 100%;
+      }
+      #fade-toggle,
+      #slide-toggle {
+        background-color: black;
+        font-family: "sans-serif";
+        color: white;
+      }
 
-                   
-         #custom-animation {
-            background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA  51%, #1D2B64  100%);
-            margin: 5px;
-            padding: 5px 5px;
-            text-align: center;
-            transition: 5s;
-            background-size: 200% auto;
-            color: white;            
-            box-shadow: 0 0 20px #eeeeee;
-            border-radius: 10px;
-            display: block;
-            
-          }
+      #custom-animation {
+        background-image: linear-gradient(
+          to right,
+          #1d2b64 0%,
+          #f8cdda 51%,
+          #1d2b64 100%
+        );
+        margin: 5px;
+        padding: 5px 5px;
+        text-align: center;
+        transition: 5s;
+        background-size: 200% auto;
+        color: white;
+        box-shadow: 0 0 20px #eeeeee;
+        border-radius: 10px;
+        display: block;
+      }
 
-          #custom-animation:hover {
-            background-position: right center; /* change the direction of the change here */
-            color: blue;
-            text-decoration: none;
-          }
-         
-         
+      #custom-animation:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: blue;
+        text-decoration: none;
+      }
     </style>
 
     <script>
-        /* All Jquery methods are inside the document ready event. */
-        $(document).ready(function()
-        {
-            //fade in and out animation 
-            $("button#fade-toggle").click(function()
-            {
-                $("#circle").fadeToggle(5000);    //5000 ms is equal to 5 seconds animation duration
+      /* All Jquery methods are inside the document ready event. */
+      $(document).ready(function()
+      {
+          //fade in and out animation
+          $("button#fade-toggle").click(function()
+          {
+              $("#circle").fadeToggle(5000);    //5000 ms is equal to 5 seconds animation duration
 
-            });
+          });
 
-            //sliding up and down animation
-            $("button#slide-toggle").click(function()
-            {
-                $("#circle").slideToggle(5000);
+          //sliding up and down animation
+          $("button#slide-toggle").click(function()
+          {
+              $("#circle").slideToggle(5000);
 
-            });
+          });
 
-            //My own customized animation
+          //My own customized animation
 
-            $("button#custom-animation").click(function()
-            {
-                $("#circle").animate({
-                    width:"300px",
-                    height:"300px"
-                })
+          $("button#custom-animation").click(function()
+          {
+              $("#circle").animate({
+                  width:"300px",
+                  height:"300px",
+                  backgroundColor:"green"
+              },
 
-            
+              {
+                  duration:4000,
+                  specialEasing:{
+                      backgroundColor:"linear"
+                  }
 
-            });
+              
+           });
 
-
-
-
-        });
-
-
-        </script>
-
-</head>
-<body>
+          });
+      });
+    </script>
+  </head>
+  <body>
     <h1>Animation and Effects with JQuery</h1>
 
     <div id="circle"></div>
-    <br>
-    <hr>
+    <br />
+    <hr />
 
     <button id="fade-toggle">Fade Button</button>
 
     <button id="slide-toggle">Slide Button</button>
 
     <button id="custom-animation">My Custom Animation</button>
-     
-
-    
-</body>
+  </body>
 </html>
