@@ -22,6 +22,30 @@
             font-family: 'sans-serif';
             color: white;
         }
+        
+
+                   
+         #custom-animation {
+            background-image: linear-gradient(to right, #1D2B64 0%, #F8CDDA  51%, #1D2B64  100%);
+            margin: 5px;
+            padding: 5px 5px;
+            text-align: center;
+            transition: 5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 20px #eeeeee;
+            border-radius: 10px;
+            display: block;
+            
+          }
+
+          #custom-animation:hover {
+            background-position: right center; /* change the direction of the change here */
+            color: blue;
+            text-decoration: none;
+          }
+         
+         
     </style>
 
     <script>
@@ -42,6 +66,21 @@
 
             });
 
+            //My own customized animation
+
+            $("button#custom-animation").click(function()
+            {
+                $("#circle").animate({
+                    width:"300px",
+                    height:"300px"
+                })
+
+            
+
+            });
+
+
+
 
         });
 
@@ -59,6 +98,8 @@
     <button id="fade-toggle">Fade Button</button>
 
     <button id="slide-toggle">Slide Button</button>
+
+    <button id="custom-animation">My Custom Animation</button>
      
 
     
