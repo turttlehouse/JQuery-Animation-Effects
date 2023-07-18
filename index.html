@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JQuery Animations</title>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script> 
+
+
+
 
     <style>
         #circle {
@@ -13,12 +17,38 @@
             background-color: rgb(100, 234, 255);
             border-radius: 100%;
         }
+        #fade-toggle{
+            background-color: black;
+            font-family: 'sans-serif';
+            color: white;
+        }
     </style>
+
+    <script>
+        /* All Jquery methods are inside the document ready event. */
+        $(document).ready(function()
+        {
+            $("button#fade-toggle").click(function()
+            {
+                $("#circle").fadeToggle(5000);    //5000 ms is equal to 5 seconds animation duration
+
+            });
+
+
+        });
+
+
+        </script>
 
 </head>
 <body>
+    <h1>Animation and Effects with JQuery</h1>
 
     <div id="circle"></div>
+    <br>
+    <hr>
+
+    <button id="fade-toggle">Fade Button</button>
      
 
     
