@@ -17,7 +17,7 @@
             background-color: rgb(100, 234, 255);
             border-radius: 100%;
         }
-        #fade-toggle{
+        #fade-toggle,#slide-toggle{
             background-color: black;
             font-family: 'sans-serif';
             color: white;
@@ -28,9 +28,17 @@
         /* All Jquery methods are inside the document ready event. */
         $(document).ready(function()
         {
+            //fade in and out animation 
             $("button#fade-toggle").click(function()
             {
                 $("#circle").fadeToggle(5000);    //5000 ms is equal to 5 seconds animation duration
+
+            });
+
+            //sliding up and down animation
+            $("button#slide-toggle").click(function()
+            {
+                $("#circle").slideToggle(5000);
 
             });
 
@@ -49,6 +57,8 @@
     <hr>
 
     <button id="fade-toggle">Fade Button</button>
+
+    <button id="slide-toggle">Slide Button</button>
      
 
     
